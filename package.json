@@ -1,0 +1,39 @@
+{
+  "name": "homepage-tod",
+  "version": "1.0.0",
+  "description": "Final html/css assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "deploy": "git add dist -f && git commit -S -m 'Deployment Commit' && git subtree push --prefix dist origin gh-pages",
+    "merge-update": "git checkout -b gh-pages && git merge main --no-edit",
+    "main": "git checkout main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenstrange-blip/homepage-tod.git"
+  },
+  "keywords": [
+    "tod",
+    "homepage"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenstrange-blip/homepage-tod/issues"
+  },
+  "homepage": "https://github.com/stephenstrange-blip/homepage-tod#readme",
+  "devDependencies": {
+    "css-loader": "7.1.2",
+    "html-loader": "5.1.0",
+    "html-webpack-plugin": "5.6.3",
+    "prettier": "3.5.3",
+    "style-loader": "4.0.0",
+    "webpack": "5.98.0",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.1",
+    "webpack-merge": "6.0.1"
+  }
+}
