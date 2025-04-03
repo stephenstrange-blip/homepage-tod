@@ -5,6 +5,13 @@ import twitterIcon from "./assets/twitter.svg";
 import linkedinIcon from "./assets/linkedin.svg";
 import aboutPic from "./assets/about.jpg";
 import contactPic from "./assets/contact.jpg";
+import openIcon from "./assets/open.svg";
+import awsIcon from "./assets/aws.svg";
+import k8Icon from "./assets/k8.svg";
+import reactIcon from "./assets/react.svg";
+import typescriptIcon from "./assets/typescript.svg";
+import golangIcon from "./assets/go.svg";
+import terraformIcon from "./assets/terraform.svg";
 
 (function addText() {
   const aboutMe = "About Me";
@@ -82,4 +89,105 @@ import contactPic from "./assets/contact.jpg";
   footer.append(figure2);
 })();
 
-class Card {}
+function addCard() {
+  const k8 = new Card();
+  const aws = new Card();
+  const react = new Card();
+  const golang = new Card();
+  const terraform = new Card();
+  const typescript = new Card();
+
+  k8.addLink(githubIcon, openIcon);
+  aws.addLink(githubIcon, openIcon);
+  react.addLink(githubIcon, openIcon);
+  golang.addLink(githubIcon, openIcon);
+  terraform.addLink(githubIcon, openIcon);
+  typescript.addLink(githubIcon, openIcon);
+
+  k8.addFigure(k8Icon, "Icon from devicon.dev");
+  aws.addFigure(awsIcon, "Icon from devicon.dev");
+  react.addFigure(reactIcon, "Icon from devicon.dev");
+  golang.addFigure(golangIcon, "Icon from devicon.dev");
+  terraform.addFigure(terraformIcon, "Icon from devicon.dev");
+  typescript.addFigure(typescriptIcon, "Icon from devicon.dev");
+
+  k8.addInfo(
+    "Kubernetes",
+    "Kubernetes for Managing Docker Containers. Essential for Cloud Engineers",
+  );
+  aws.addInfo(
+    "AWS",
+    "AWS for storing serverless applications and architecture. Essential for Cloud Engineers",
+  );
+  react.addInfo(
+    "React",
+    "React for building websites and PWAs. Essential for Web Developers",
+  );
+  golang.addInfo(
+    "Golang",
+    "Golang for server-side scripting and cloud development. Ideal for DevOps Engineers",
+  );
+  terraform.addInfo(
+    "Terraform",
+    "Terraform for cloud automation. Ideal for Cloud Engineers",
+  );
+  typescript.addInfo(
+    "Typescript",
+    "Typescript for building websites and PWAs. Ideal for Web Developers",
+  );
+
+  k8.insertToDOM("card", "k8");
+  aws.insertToDOM("card", "aws");
+  react.insertToDOM("card", "react");
+  golang.insertToDOM("card", "golang");
+  terraform.insertToDOM("card", "terraform");
+  typescript.insertToDOM("card", "typescript");
+}
+
+class Card {
+  constructor() {
+    this.container = document.createElement("div");
+    this.upper = document.createElement("figure");
+    this.lower = document.createElement("div");
+    this.links = document.createElement("div");
+    this.h2 = document.createElement("h2");
+    this.span = document.createElement("span");
+  }
+
+  addLink(...src) {
+    src.forEach((link) => {
+      const img = document.createElement("img");
+      img.src = link;
+      this.links.append(img);
+    });
+    this.lower.append(this.links);
+  }
+
+  addInfo(header, description) {
+    this.span.textContent = description;
+    this.h2.textContent = header;
+    this.lower.append(this.header, this.span);
+  }
+
+  addFigure(src, caption) {
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const figcaption = document.createElement("figcaption");
+    img.src = src;
+    figcaption.textContent = caption;
+    figure.append(img, figcaption);
+    this.upper.append(figure);
+  }
+
+  insertToDOM(...className) {
+    const fragment = new DocumentFragment();
+    const container = document.querySelector(".card-container");
+    this.container.append(this.upper, this.lower);
+    this.container.classList.add(...className);
+
+    fragment.append(this.container);
+    container.append(fragment);
+  }
+}
+
+addCard();

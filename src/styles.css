@@ -17,8 +17,12 @@ header, footer {
   flex-flow: row nowrap;
 }
 
-main {
-  min-height: 500px;
+
+.card-container {
+  display: grid;
+  grid-template: repeat(2, 500px) / repeat(3, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
 
 
