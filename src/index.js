@@ -1,5 +1,7 @@
 import "./css_reset.css";
 import "./styles.css";
+import phoneIcon from "./assets/call.svg";
+import mailIcon from "./assets/mail.svg";
 import githubIcon from "./assets/github.svg";
 import twitterIcon from "./assets/twitter.svg";
 import linkedinIcon from "./assets/linkedin.svg";
@@ -16,10 +18,8 @@ import terraformIcon from "./assets/terraform.svg";
 (function addText() {
   const aboutMe = "About Me";
   const aboutInfo =
-    "I am an aspiring software engineer from the Land of the Pearl of the Orients. My end goal is to become a cloud engineer but I also took interest in web development, hence why I am in the TOD curriculum. If you want to find a coding buddy or you need someone for backend development, primarily something to do with the cloud, then do not hesitate to reach out to me!";
-
-  const skills = "My target languages";
-
+    "I am an aspiring software engineer from the Land of the Pearl of the Orient. My end goal is to become a cloud engineer but I also took interest in web development, hence this TOD assignment. If you want to find a coding buddy or you need someone for backend development, primarily something to do with the cloud, then do not hesitate to reach out to me!";
+  const skills = "My target skills";
   const contactMe = "Contact Me";
   const contactMsg =
     "Don't hesitate to reach out if you think we share interest or it benefits yours. Happy Coding!";
@@ -27,7 +27,7 @@ import terraformIcon from "./assets/terraform.svg";
   const email = "jademattieuisip@gmail.com";
 
   const aboutP = document.querySelector(".about-me > p");
-
+  const aboutHeader = document.querySelector(".about-me > h1");
   const mainHeader = document.querySelector("main > h1");
 
   const footerHeader = document.querySelector("footer > div > h1");
@@ -35,6 +35,7 @@ import terraformIcon from "./assets/terraform.svg";
   const callP = document.querySelector(".phone > p");
   const mailP = document.querySelector(".mail > p");
 
+  aboutHeader.textContent = aboutMe;
   aboutP.textContent = aboutInfo;
   mainHeader.textContent = skills;
   footerHeader.textContent = contactMe;
@@ -60,6 +61,15 @@ import terraformIcon from "./assets/terraform.svg";
 
     container.append(github, linkedIn, twitter);
   });
+
+  const phoneDiv = document.querySelector(".phone");
+  const mailDiv = document.querySelector(".mail");
+  const phone = document.createElement("img");
+  const mail = document.createElement("img");
+  phone.src = phoneIcon;
+  mail.src = mailIcon;
+  phoneDiv.insertBefore(phone, phoneDiv.firstChild);
+  mailDiv.insertBefore(mail, mailDiv.firstChild);
 })();
 
 (function addImages() {
@@ -104,12 +114,12 @@ function addCard() {
   terraform.addLink(githubIcon, openIcon);
   typescript.addLink(githubIcon, openIcon);
 
-  k8.addFigure(k8Icon, "Icon from devicon.dev");
-  aws.addFigure(awsIcon, "Icon from devicon.dev");
-  react.addFigure(reactIcon, "Icon from devicon.dev");
-  golang.addFigure(golangIcon, "Icon from devicon.dev");
-  terraform.addFigure(terraformIcon, "Icon from devicon.dev");
-  typescript.addFigure(typescriptIcon, "Icon from devicon.dev");
+  k8.addFigure(k8Icon);
+  aws.addFigure(awsIcon);
+  react.addFigure(reactIcon);
+  golang.addFigure(golangIcon);
+  terraform.addFigure(terraformIcon);
+  typescript.addFigure(typescriptIcon);
 
   k8.addInfo(
     "Kubernetes",
@@ -139,8 +149,8 @@ function addCard() {
   k8.insertToDOM("card", "k8");
   aws.insertToDOM("card", "aws");
   react.insertToDOM("card", "react");
-  golang.insertToDOM("card", "golang");
   terraform.insertToDOM("card", "terraform");
+  golang.insertToDOM("card", "golang");
   typescript.insertToDOM("card", "typescript");
 }
 
@@ -160,23 +170,20 @@ class Card {
       img.src = link;
       this.links.append(img);
     });
+    this.links.classList.add("links");
     this.lower.append(this.links);
   }
 
   addInfo(header, description) {
     this.span.textContent = description;
     this.h2.textContent = header;
-    this.lower.append(this.header, this.span);
+    this.lower.append(this.span);
   }
 
-  addFigure(src, caption) {
-    const figure = document.createElement("figure");
+  addFigure(src) {
     const img = document.createElement("img");
-    const figcaption = document.createElement("figcaption");
     img.src = src;
-    figcaption.textContent = caption;
-    figure.append(img, figcaption);
-    this.upper.append(figure);
+    this.upper.append(img);
   }
 
   insertToDOM(...className) {

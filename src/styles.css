@@ -1,32 +1,173 @@
-body * {
-  border: .5px solid black;
-}
-
 html {
   width: 100%;
 }
 
-body, header, footer {
+body,
+header,
+footer,
+.links,
+.card,
+figure,
+.phone,
+.mail {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   min-width: 100%;
 }
 
-header, footer {
+header,
+footer {
   flex-flow: row nowrap;
+  max-height: 500px;
 }
 
+.links {
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.5rem;
+
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 3rem 5rem;
+  min-width: revert;
+}
+
+img {
+  width: 29px;
+  height: 29px;
+}
+
+.links img:last-child {
+  width: 26px;
+  height: 26px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+header,
+main,
+footer {
+  padding: 5rem;
+  background-color: white;
+}
+
+figure {
+  position: relative;
+}
+
+i {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: white;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.384);
+}
+
+/* header content styling */
+.about-picture img {
+  width: 60rem;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0.5rem;
+}
+
+.about-picture + div {
+  padding: 2rem 5rem;
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0.5rem;
+}
+
+/* main content styling */
+body {
+  background: rgb(104, 33, 125);
+  background: linear-gradient(
+    90deg,
+    rgba(104, 33, 125, 1) 0%,
+    rgba(53, 43, 148, 1) 70%,
+    rgba(56, 47, 214, 1) 90%,
+    rgba(74, 65, 228, 1) 95%,
+    rgba(11, 111, 214, 1) 100%
+  );
+}
+
+main {
+  background-color: revert;
+}
+
+main h1 {
+  color: rgba(255, 255, 255, 0.8);
+}
 
 .card-container {
   display: grid;
-  grid-template: repeat(2, 500px) / repeat(3, minmax(200px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  grid-template: repeat(2, 400px) / repeat(3, minmax(300px, 1fr));
+  gap: 5rem;
+  padding: 3rem;
+}
+.card {
+  box-shadow: rgba(255, 255, 255, 0.5) 0 0 5rem;
+  background-color: rgba(255, 255, 255, 0.537);
+  border-radius: 5px;
+  padding: 3rem;
+  justify-content: flex-start;
+  position: relative;
 }
 
+.card figure {
+  align-items: center;
+  padding-bottom: 3rem;
+}
 
-img {
-  width: 50px;
-  height: 50px;
+.card figure img {
+  width: 120px;
+  height: 120px;
+  object-fit: fill;
+}
+
+.card > div:first-of-type {
+  padding-top: 2rem;
+}
+
+.card .links {
+  padding: 3rem;
+}
+
+/* footer styling */
+
+footer figure {
+  min-width: revert;
+}
+
+footer figure img {
+  width: 60rem;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0.5rem;
+}
+
+footer .links {
+  position: revert;
+  padding-left: revert;
+  justify-content: revert;
+  gap: 1rem;
+}
+
+footer > div:first-child > p {
+  max-width: 70ch;
+  padding-bottom: 3rem;
+}
+
+footer > div:first-child > div {
+  padding-top: 1rem;
+}
+
+.phone,
+.mail {
+  flex-flow: row nowrap;
+  justify-content: flex-start;
 }
