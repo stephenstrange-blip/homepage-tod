@@ -9,7 +9,8 @@ footer,
 .card,
 figure,
 .phone,
-.mail {
+.mail,
+header > div {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -17,7 +18,8 @@ figure,
 }
 
 header,
-footer {
+footer,
+header > div {
   flex-flow: row nowrap;
   max-height: 500px;
 }
@@ -37,6 +39,7 @@ footer {
 img {
   width: 29px;
   height: 29px;
+  transition: transform 1s ease-in-out 0s;
 }
 
 .links img:last-child {
@@ -51,7 +54,7 @@ h1 {
 header,
 main,
 footer {
-  padding: 5rem;
+  padding: 3rem 5rem;
   background-color: white;
 }
 
@@ -64,15 +67,20 @@ i {
   bottom: 0px;
   left: 0px;
   color: white;
+  font-size: small;
   width: 100%;
   background-color: rgba(128, 128, 128, 0.384);
 }
 
 /* header content styling */
 .about-picture img {
-  width: 60rem;
+  width: 80rem;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 0.5rem;
+}
+
+header figure {
+  height: 100%;
 }
 
 .about-picture + div {
@@ -97,6 +105,7 @@ body {
 
 main {
   background-color: revert;
+  padding-top: 6rem;
 }
 
 main h1 {
@@ -170,4 +179,21 @@ footer > div:first-child > div {
 .mail {
   flex-flow: row nowrap;
   justify-content: flex-start;
+}
+
+/* transform css */
+header > * {
+  transform: translateY(6rem) skewY(7deg) scale(0.6);
+}
+header {
+  transform: translateY(-8rem) skewY(-7deg) scale(1.5);
+}
+
+header figure {
+  transform: scale(1.15);
+  z-index: 1;
+}
+
+main figure img:hover {
+  transform: scale(1.5) rotate3d(1, 1, 1, 360deg);
 }
