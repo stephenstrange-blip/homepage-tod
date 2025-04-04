@@ -15,6 +15,7 @@ import typescriptIcon from "./assets/typescript.svg";
 import golangIcon from "./assets/go.svg";
 import terraformIcon from "./assets/terraform.svg";
 
+
 (function addText() {
   const aboutMe = "About Me";
   const aboutInfo =
@@ -149,9 +150,9 @@ function addCard() {
   k8.insertToDOM("card", "k8");
   aws.insertToDOM("card", "aws");
   react.insertToDOM("card", "react");
-  terraform.insertToDOM("card", "terraform");
-  golang.insertToDOM("card", "golang");
-  typescript.insertToDOM("card", "typescript");
+  terraform.insertToDOM("card", "tf");
+  golang.insertToDOM("card", "go");
+  typescript.insertToDOM("card", "ts");
 }
 
 class Card {
@@ -197,6 +198,34 @@ class Card {
   }
 }
 
+function addLinks() {
+  const links = Array.from(document.querySelectorAll(".card .links"));
+  const hrefs = [
+    {
+      link: "https://kubernetes.io/",
+      tag: "k8",
+    },
+    {
+      link: "https://aws.amazon.com/",
+      tag: "aws",
+    },
+    { link: "https://react.dev/", tag: "react" },
+    { link: "https://www.terraform.io/", tag: "tf" },
+    { link: "https://go.dev/", tag: "go" },
+    { link: "https://www.typescriptlang.org/", tag: "ts" },
+  ];
+
+  links.forEach((link) => {
+    const className = link.parentElement.parentElement.classList[1];
+    const openImg = link.lastElementChild;
+    const a = document.createElement("a");
+    a.href = hrefs.filter((href) => {
+      return href.tag === className;
+    })[0].link;
+    a.append(openImg);
+    link.append(a);
+  });
+}
+
 addCard();
-
-
+addLinks();
