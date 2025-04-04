@@ -39,7 +39,7 @@ header > div {
 
 .links img,
 .phone img,
-.mail img  {
+.mail img {
   width: 29px;
   height: 29px;
   transition: opacity 0.5s;
@@ -188,12 +188,35 @@ footer > div:first-child > div {
   justify-content: flex-start;
 }
 
-/* transform css */
+/* transform and animation css */
 header > * {
+  animation: skewBack .2s linear;
+  animation-timeline: scroll();
   transform: translateY(6rem) skewY(7deg) scale(0.6);
 }
+
 header {
+  animation: skew .2s linear;
+  animation-timeline: scroll();
   transform: translateY(-8rem) skewY(-7deg) scale(1.5);
+}
+
+@keyframes skew {
+  20% {
+    transform: revert;
+  }
+  to {
+    transform: revert;
+  }
+}
+
+@keyframes skewBack {
+  20% {
+    transform: revert;
+  }
+  to {
+    transform: revert;
+  }
 }
 
 header figure {
