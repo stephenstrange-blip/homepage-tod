@@ -1,5 +1,6 @@
 html {
   width: 100%;
+  overflow-x: hidden;
 }
 
 body,
@@ -36,10 +37,12 @@ header > div {
   min-width: revert;
 }
 
-img {
+.links img,
+.phone img,
+.mail img  {
   width: 29px;
   height: 29px;
-  transition: transform 1s ease-in-out 0s;
+  transition: opacity 0.5s;
 }
 
 .links img:last-child {
@@ -118,6 +121,7 @@ main h1 {
   gap: 5rem;
   padding: 3rem;
 }
+
 .card {
   box-shadow: rgba(255, 255, 255, 0.5) 0 0 5rem;
   background-color: rgba(255, 255, 255, 0.537);
@@ -125,6 +129,7 @@ main h1 {
   padding: 3rem;
   justify-content: flex-start;
   position: relative;
+  transition: transform 0.5s;
 }
 
 .card figure {
@@ -133,6 +138,7 @@ main h1 {
 }
 
 .card figure img {
+  transition: transform 1s ease-in-out 0s;
   width: 120px;
   height: 120px;
   object-fit: fill;
@@ -169,6 +175,7 @@ footer .links {
 footer > div:first-child > p {
   max-width: 70ch;
   padding-bottom: 3rem;
+  padding-right: 1rem;
 }
 
 footer > div:first-child > div {
@@ -194,6 +201,14 @@ header figure {
   z-index: 1;
 }
 
-main figure img:hover {
+.card:hover figure > img {
   transform: scale(1.5) rotate3d(1, 1, 1, 360deg);
+}
+.card:hover {
+  transform: scale(1.1);
+}
+
+.links img:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }

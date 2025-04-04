@@ -22,7 +22,7 @@ import terraformIcon from "./assets/terraform.svg";
   const skills = "My target skills";
   const contactMe = "Contact Me";
   const contactMsg =
-    "Don't hesitate to reach out if you think we share interest or it benefits yours. Happy Coding!";
+    "Don't hesitate to reach out if you think we share interest or my interest benefits yours. Happy Coding!";
   const contactNo = "+63 987 6543 321";
   const email = "jademattieuisip@gmail.com";
 
